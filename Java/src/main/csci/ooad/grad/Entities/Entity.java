@@ -3,7 +3,7 @@ package csci.ooad.grad.Entities;
 public abstract class Entity {
 
     private final String name;
-    private String noise;
+    protected String noise;
 
     public Entity(String name) {
         this.name = name;

@@ -5,7 +5,7 @@ public class Cat extends Entity implements CanMeow {
     public Cat(String name) {
         super(name);
 
-        setNoise("meow");
+        noise = "meow";
     }
 
     public String meow(Entity annoyedAt) {

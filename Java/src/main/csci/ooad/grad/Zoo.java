@@ -1,8 +1,11 @@
 package csci.ooad.grad;
 
+import csci.ooad.grad.Entities.CanAdmire;
 import csci.ooad.grad.Entities.EntityFactory;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Zoo {
@@ -15,13 +18,27 @@ public class Zoo {
     }
 
     public void takeTurn() {
+
         for (Exhibit exhibit : exhibits) {
             exhibit.getEnclosureNoises();
             exhibit.getPatronNoises();
         }
+
+        for (Exhibit exhibit : exhibits) {
+
+            CanAdmire patron = exhibit.getRandomPatron();
+            if (Objects.isNull(patron)) continue;
+
+            exhibit.exit(patron);
+            getRandomExhibit(exhibits).enter(patron);
+        }
     }
 
-    public class Builder {
+    private static Exhibit getRandomExhibit(List<Exhibit> exhibits) {
+        return exhibits.get(new Random().nextInt(exhibits.size()));
+    }
+
+    public static class Builder {
 
         private final List<Exhibit> exhibits;
         private final EntityFactory entityFactory;
@@ -31,7 +48,7 @@ public class Zoo {
             entityFactory = new EntityFactory();
         }
 
-        public Builder getBuilder() {
+        public static Builder getBuilder() {
             return new Builder();
         }
 
@@ -39,44 +56,46 @@ public class Zoo {
             return new Zoo(exhibits);
         }
 
-        public void createAndAddExhibits(int numberOfExhibits) {
+        public Builder createAndAddExhibits(int numberOfExhibits) {
             for (int i = 0; i < numberOfExhibits; i++) {
                 exhibits.add(new Exhibit());
             }
+            return this;
         }
 
-        public void createAndAddCats(int numberOfCats) {
+        public Builder createAndAddCats(int numberOfCats) {
             for (int i = 0; i < numberOfCats; i++) {
-                getRandomExhibit().addEnclosedEnity(entityFactory.createCat());
+                getRandomExhibit(exhibits).addEnclosedEnity(entityFactory.createCat());
             }
+            return this;
         }
 
-        public void createAndAddEnclosedPeople(int numberOfPeople) {
+        public Builder createAndAddEnclosedPeople(int numberOfPeople) {
             for (int i = 0; i < numberOfPeople; i++) {
-                getRandomExhibit().addEnclosedEnity(entityFactory.createPerson());
+                getRandomExhibit(exhibits).addEnclosedEnity(entityFactory.createPerson());
             }
+            return this;
         }
 
-        public void createAndAddDogs(int numberOfDogs) {
+        public Builder createAndAddDogs(int numberOfDogs) {
             for (int i = 0; i < numberOfDogs; i++) {
-                getRandomExhibit().addEnclosedEnity(entityFactory.createDog());
+                getRandomExhibit(exhibits).addEnclosedEnity(entityFactory.createDog());
             }
+            return this;
         }
 
-        public void createAndAddDisguisedDogs(int numberOfDisguisedDogs) {
+        public Builder createAndAddDisguisedDogs(int numberOfDisguisedDogs) {
             for (int i = 0; i < numberOfDisguisedDogs; i++) {
-                getRandomExhibit().addEnclosedEnity(entityFactory.createDisguisedDog());
+                getRandomExhibit(exhibits).addEnclosedEnity(entityFactory.createDisguisedDog());
             }
+            return this;
         }
 
-        public void createAndAddPatrons(int numberOfPatrons) {
+        public Builder createAndAddPatrons(int numberOfPatrons) {
             for (int i = 0; i < numberOfPatrons; i++) {
-                getRandomExhibit().enter(entityFactory.createPerson());
+                getRandomExhibit(exhibits).enter(entityFactory.createPerson());
             }
-        }
-
-        private Exhibit getRandomExhibit() {
-            return exhibits.get(new Random().nextInt(exhibits.size()));
+            return this;
         }
     }
 }

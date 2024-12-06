@@ -30,6 +30,7 @@ public class Exhibit {
             if (entity instanceof CanMeow) noise = ((CanMeow) entity).meow(getRandomEnclosureEntity());
             if (entity instanceof CanAdmire) noise = ((CanAdmire) entity).admire(getRandomEnclosureEntity());
 
+            noises.add(noise);
             EventBus.getInstance().post(EventType.EnclosureNoise, entity.getName() + " said " + noise);
         }
 
@@ -38,11 +39,16 @@ public class Exhibit {
 
     public List<String> getPatronNoises() {
 
-        List<String> noises = new ArrayList<String>();
+        List<String> noises = new ArrayList<>();
 
         for (CanAdmire patron : patrons) {
-            noises.add(patron.admire(getRandomEnclosureEntity()));
+            String noise = patron.admire(getRandomEnclosureEntity());
+            noises.add(noise);
+
+            EventBus.getInstance().post(EventType.AdmireNoise, ((Entity) patron).getName() + " said " + noise);
         }
+
+
 
         return noises;
     }
@@ -60,6 +66,13 @@ public class Exhibit {
     }
 
     private Entity getRandomEnclosureEntity() {
+        if (enclosure.isEmpty()) return null;
         return enclosure.get(new Random().nextInt(enclosure.size()));
     }
+
+    public CanAdmire getRandomPatron() {
+        if (patrons.isEmpty()) return null;
+        return patrons.get(new Random().nextInt(patrons.size()));
+    }
+
 }

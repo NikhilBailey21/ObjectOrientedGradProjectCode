@@ -13,4 +13,8 @@ public class ZooSimulator {
             zoo.takeTurn();
         }
     }
+
+    public void attach(Observer observer) {
+        EventBus.getInstance().attach(observer);
+    }
 }
