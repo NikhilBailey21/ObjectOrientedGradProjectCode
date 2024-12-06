@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Target a modern JavaScript version (ES6 or later)
+    "module": "CommonJS", // Use CommonJS for Node.js compatibility
+    "strict": true, // Enable strict mode for TypeScript
+    "esModuleInterop": true, // Allow default imports from non-ESM modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Enforce case-sensitivity in file names
+    "outDir": "./dist", // Output compiled JS files to the dist directory
+    "baseUrl": ".", // Resolve module imports from the root
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"], // Include the source and test files
+  "exclude": ["node_modules"]
+}

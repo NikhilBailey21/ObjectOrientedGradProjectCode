@@ -7,7 +7,7 @@ import java.util.Objects;
 public class EventBus {
 
     private static EventBus instance;
-    private List<Observer> observers = new ArrayList<>();
+    private final List<Observer> observers;
 
     public void attach(Observer observer) {
         observers.add(observer);

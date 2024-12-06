@@ -20,11 +20,6 @@ public class CatAdapter extends Cat {
     }
 
     @Override
-    protected void setNoise(String noise) {
-        dog.setNoise(noise);
-    }
-
-    @Override
     public String getName() {
         return dog.getName();
     }
