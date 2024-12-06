@@ -1,4 +1,4 @@
-import Entity;
+package csci.ooad.grad.Entities;
 
 public class Cat extends Entity implements CanMeow {
 
@@ -9,7 +9,7 @@ public class Cat extends Entity implements CanMeow {
     }
 
     public String meow(Entity annoyedAt) {
-        return getNoise() + " to " + annoyedAt;
+        return getNoise() + " to " + annoyedAt.getName();
     }
 
 }

@@ -1,4 +1,4 @@
-import Entity;
+package csci.ooad.grad.Entities;
 
 public class Dog extends Entity implements CanBark {
 
@@ -8,7 +8,7 @@ public class Dog extends Entity implements CanBark {
         setNoise("BARK");
     }
 
-    public void bark() {
+    public String bark() {
         return getNoise();
     }
 }

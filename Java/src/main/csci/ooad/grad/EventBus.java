@@ -1,3 +1,9 @@
+package csci.ooad.grad;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class EventBus {
 
     private static EventBus instance;
@@ -8,15 +14,15 @@ public class EventBus {
     }
 
     private EventBus() {
-        ovbservers = new ArrayList<>();
+        observers = new ArrayList<>();
     }
 
-    private static EventBus getInstance() {
-        if Objects.isNull(instance) instance = new EventBus();
+    public static EventBus getInstance() {
+        if (Objects.isNull(instance)) instance = new EventBus();
         return instance;
     }
 
-    public void Post(EventType eventType, String message) {
+    public void post(EventType eventType, String message) {
         for(Observer observer : observers) {
             observer.notify(eventType, message);
         }

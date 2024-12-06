@@ -1,4 +1,4 @@
-import Cat;
+package csci.ooad.grad.Entities;
 
 public class CatAdapter extends Cat {
     private final Dog dog;
@@ -10,22 +10,22 @@ public class CatAdapter extends Cat {
     }
 
     @Override
-    public String meow() {
-        return dog.getNoise + " at nobody";
+    public String meow(Entity annoyedAt) {
+        return dog.bark() + " at " + annoyedAt.getName();
     }
 
     @Override
-    String String getNoise() {
-        dog.getNoise()
+    public String getNoise() {
+        return dog.getNoise();
     }
 
     @Override
-    void setNoise(String noise) {
+    public void setNoise(String noise) {
         dog.setNoise(noise);
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return dog.getName();
     }
 

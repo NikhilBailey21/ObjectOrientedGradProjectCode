@@ -1,3 +1,5 @@
+package csci.ooad.grad.Entities;
+
 public abstract class Entity {
 
     private final String name;
@@ -15,7 +17,7 @@ public abstract class Entity {
         return noise;
     }
 
-    private void setNoise(String noise) {
+    void setNoise(String noise) {
         this.noise = noise;
     }
 }

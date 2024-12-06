@@ -1,12 +1,14 @@
+package csci.ooad.grad;
+
 public class ZooSimulator {
 
-    private Zoo zoo;
+    private final Zoo zoo;
 
     public ZooSimulator(Zoo zoo) {
         this.zoo = zoo;
     }
 
-    public simulateTurns(int numberOfTurns) {
+    public void simulateTurns(int numberOfTurns) {
         for (int i = 0; i < numberOfTurns; i++) {
             zoo.takeTurn();
         }

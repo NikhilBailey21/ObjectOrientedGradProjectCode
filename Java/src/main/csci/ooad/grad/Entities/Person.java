@@ -1,4 +1,6 @@
-public class Person extends Entity implements canAdmire {
+package csci.ooad.grad.Entities;
+
+public class Person extends Entity implements CanAdmire {
 
     public Person(String name) {
         super(name);
@@ -7,6 +9,6 @@ public class Person extends Entity implements canAdmire {
     }
 
     public String admire(Entity admiring) {
-        return
+        return getNoise() + " at " + admiring.getName();
     }
 }
