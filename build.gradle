@@ -6,13 +6,8 @@ group = 'csci.ooad.grad'
 version = '1.0-SNAPSHOT'
 
 java {
-    sourceCompatibility = 23
-    targetCompatibility = 23
     withJavadocJar()
     withSourcesJar()
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(23)
-    }
 }
 
 repositories {
