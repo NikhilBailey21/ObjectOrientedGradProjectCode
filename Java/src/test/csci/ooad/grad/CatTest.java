@@ -12,7 +12,7 @@ public class CatTest {
     @Test
     void testGetName() {
         Entity cat = entityFactory.createCat();
-       Assertions.assertNotEquals(cat.getName(), "");
+       Assertions.assertNotEquals("", cat.getName());
     }
 
     @Test void testMeow() {
