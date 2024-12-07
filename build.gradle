@@ -5,15 +5,27 @@ plugins {
 group = 'csci.ooad.grad'
 version = '1.0-SNAPSHOT'
 
+java {
+    sourceCompatibility = 23
+    targetCompatibility = 23
+    withJavadocJar()
+    withSourcesJar()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
     // Add your dependencies here
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0' // Example for JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
 
-tasks.named('test', Test) {
+
+test {
     useJUnitPlatform()
 }
