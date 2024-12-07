@@ -42,10 +42,13 @@ public class Exhibit {
         List<String> noises = new ArrayList<>();
 
         for (CanAdmire patron : patrons) {
-            String noise = patron.admire(getRandomEnclosureEntity());
-            noises.add(noise);
+            Entity randomEntity = getRandomEnclosureEntity();
+            if (randomEntity != null) {
+                String noise = patron.admire(getRandomEnclosureEntity());
+                noises.add(noise);
 
-            EventBus.getInstance().post(EventType.AdmireNoise, ((Entity) patron).getName() + " said " + noise);
+                EventBus.getInstance().post(EventType.AdmireNoise, ((Entity) patron).getName() + " said " + noise);
+            }
         }
 
 
