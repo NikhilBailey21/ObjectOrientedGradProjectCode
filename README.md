@@ -26,15 +26,7 @@ The Zoo Simulator models a zoo with animals, enclosures, and zookeeper interacti
     - Ensure JUnit 5 is available for testing.
 
 2. **Steps**:
-   ```bash
-   # Compile and run the program
-   ./gradlew test
-   ```
-   A report will be generated at
-   ```
-   build/reports/tests/test/index.html
-   ```
-   or you can manually right-click the test folder and run all tests.
+right-click the test folder and run all tests.
 
    
 ### TypeScript Version
