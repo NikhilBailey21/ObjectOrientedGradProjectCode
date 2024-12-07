@@ -81,9 +81,9 @@ Used to allow entities to exhibit different behaviors without modifying the enti
 
 **Example:**
 - By using an `Entity` to implement `CanAdmire`, `CanBark`, and `CanMeow` interfaces to create the `Person`, `Dog`, and `Cat` classes.
-- [CanAdmire (Java)](Java/src/main/csci/ooad/grad/Entities/CanAdmire.java)
-- [CanBark (Java)](Java/src/main/csci/ooad/grad/Entities/CanBark.java)
-- [CanMeow (Java)](Java/src/main/csci/ooad/grad/Entities/CanMeow.java)
+- [CanAdmire (Java)](src/main/csci/ooad/grad/Entities/CanAdmire.java)
+- [CanBark (Java)](src/main/csci/ooad/grad/Entities/CanBark.java)
+- [CanMeow (Java)](src/main/csci/ooad/grad/Entities/CanMeow.java)
 - [CanAdmire (TypeScript)](TypeScript/src/Entities/CanAdmire.ts)
 - [CanBark (TypeScript)](TypeScript/src/Entities/CanBark.ts)
 - [CanMeow (TypeScript)](TypeScript/src/Entities/CanMeow.ts)
@@ -93,7 +93,7 @@ Used to notify clients when an event happened.
 
 **Example:**
 - `Observer` would notify the client whenever Entity or Person made some noises
-- [Observer (Java)](Java/src/main/csci/ooad/grad/Observer.java)
+- [Observer (Java)](src/main/csci/ooad/grad/Observer.java)
 - [Observer (TypeScript)](TypeScript/src/Observer.ts)
 
 ### Singleton Pattern
@@ -101,27 +101,27 @@ Make sures that only one instance exists to provide a global point access point
 
 **Example:**
 - `EventBus` would collect all the observers that are attached to it, and served as a centralised control to notify all at once.
-- [EventBus (Java)](Java/src/main/csci/ooad/grad/EventBus.java)
+- [EventBus (Java)](src/main/csci/ooad/grad/EventBus.java)
 - [EventBus (TypeScript)](TypeScript/src/EventBus.ts)
 ### Builder Pattern
 Used to create complex object without having to write multiple construction methods
 
 **Example:**
 - `Zoo` class allows client to customize the Zoo based on the number of `Cats`, `Dogs`, `Person` and `Exhibits`
-- [Zoo (Java)](Java/src/main/csci/ooad/grad/Zoo.java)
+- [Zoo (Java)](src/main/csci/ooad/grad/Zoo.java)
 - [Zoo (TypeScript)](TypeScript/src/Zoo.ts)
 ### Factory Pattern
 Used to create objects without revealing their concrete classes
 
 **Example**
 - `EntityFactory` class creates all entities, and will return an object when the user called the `createX` method.
-- [EntityFactory (Java)](Java/src/main/csci/ooad/grad/Entities/EntityFactory.java)
+- [EntityFactory (Java)](src/main/csci/ooad/grad/Entities/EntityFactory.java)
 - [EntityFactory (TypeScript)](TypeScript/src/Entities/EntityFactory.ts)
 
 ### Adapter Pattern
 Used to bridge the gap between two incompatible classes without changing the class itself.
 - `CatAdapter` class create a `Dog` disguised as a `Cat` which it could Meow, by using dependency injection.
-- [CatAdapter (Java)](Java/src/main/csci/ooad/grad/Entities/CatAdapter.java)
+- [CatAdapter (Java)](src/main/csci/ooad/grad/Entities/CatAdapter.java)
 - [CatAdapter (TypeScript)](TypeScript/src/Entities/CatAdapter.ts)
 
 

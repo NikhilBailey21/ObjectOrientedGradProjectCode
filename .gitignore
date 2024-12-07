@@ -5,3 +5,5 @@ Java/gradle
 Java/.gradle
 out
 TypeScript/node_modules
+.gradle
+build
